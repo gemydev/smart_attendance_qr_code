@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:smart_attendance_qr_code/functions/navigation_funs.dart';
 import 'package:smart_attendance_qr_code/functions/responsive_ui/app_info.dart';
+import 'package:smart_attendance_qr_code/screens/dashboard.dart';
 
 import 'capture_qr.dart';
 
@@ -13,6 +14,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<HomePage> {
+  var levels = {"الصف الأول": 1, "الصف الثاني": 2, "الصف الثالث": 3};
+  int selectedItem = 0;
+
   @override
   Widget build(BuildContext context) {
     AppInfo appInfo = AppInfo(context);
@@ -23,7 +27,7 @@ class _MyHomePageState extends State<HomePage> {
       ),
       body: Center(
         child: GridView.builder(
-          itemCount: 3,
+          itemCount: levels.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             childAspectRatio: 0.8,
@@ -38,10 +42,13 @@ class _MyHomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                     border: Border.all(color: Colors.black, width: 2)),
                 child: GestureDetector(
-                  onTap: ()=> normalShift(context, QRViewExample()),
+                  onTap: () => normalShift(
+                      context,
+                      Dashboard(
+                          title: levels.keys.toList()[index].toString())),
                   child: Center(
                       child: Text(
-                    "الصف الاول",
+                    levels.keys.toList()[index].toString(),
                     style: TextStyle(color: Colors.white),
                   )),
                 ),
