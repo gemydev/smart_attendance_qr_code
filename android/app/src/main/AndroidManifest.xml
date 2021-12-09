@@ -2,7 +2,7 @@
     package="com.example.smart_attendance_qr_code">
    <application
         android:label="Smart QR"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
