@@ -46,7 +46,8 @@ class _MyHomePageState extends State<HomePage> {
                   child: Center(
                       child: Text(
                     levels.keys.toList()[index].toString(),
-                    style: TextStyle(color: Colors.white , fontSize: 20),
+                    style: TextStyle(
+                        color: Colors.white, fontSize: 20, fontFamily: 'kufam'),
                   )),
                 ),
               ),

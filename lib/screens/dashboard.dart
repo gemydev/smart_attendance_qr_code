@@ -37,27 +37,27 @@ class _MyHomePageState extends State<Dashboard> {
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
-                child: Container(
-                  width: (appInfo.screenWidth() - 20) * 0.3,
-                  decoration: BoxDecoration(
-                      color: MAIN_COLOR,
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                      border: Border.all(color: Colors.white, width: 2)),
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedItem = index;
-                      });
-                      selectedItem == 0
-                          ? normalShift(context, AttendanceScreen())
-                          : selectedItem == 1
-                              ? normalShift(context, MoneyScreen())
-                              : normalShift(context, StudentsInfo());
-                    },
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedItem = index;
+                    });
+                    selectedItem == 0
+                        ? normalShift(context, AttendanceScreen())
+                        : selectedItem == 1
+                            ? normalShift(context, MoneyScreen())
+                            : normalShift(context, StudentsInfo());
+                  },
+                  child: Container(
+                    width: (appInfo.screenWidth() - 20) * 0.3,
+                    decoration: BoxDecoration(
+                        color: MAIN_COLOR,
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        border: Border.all(color: Colors.white, width: 2)),
                     child: Center(
                         child: Text(
                       levels[index].toString(),
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      style: TextStyle(color: Colors.white, fontSize: 18, fontFamily: 'kufam'),
                     )),
                   ),
                 ),

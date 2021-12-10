@@ -4,7 +4,7 @@ import 'package:smart_attendance_qr_code/constants/colors.dart';
 import 'package:smart_attendance_qr_code/functions/navigation_funs.dart';
 import 'package:smart_attendance_qr_code/screens/add_students.dart';
 import 'package:smart_attendance_qr_code/widgets/custom_app_bar.dart';
-import 'package:smart_attendance_qr_code/widgets/custom_table.dart';
+import 'package:smart_attendance_qr_code/widgets/students_list.dart';
 
 class StudentsInfo extends StatelessWidget {
   const StudentsInfo({Key? key}) : super(key: key);
@@ -16,6 +16,7 @@ class StudentsInfo extends StatelessWidget {
       body: Directionality(
           textDirection: TextDirection.rtl,
           child: CustomTable()),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniStartFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: ()=> normalShift(context, AddStudents()),
         backgroundColor: MAIN_COLOR,
