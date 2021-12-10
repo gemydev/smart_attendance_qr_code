@@ -25,34 +25,37 @@ class _MyHomePageState extends State<HomePage> {
         centerTitle: true,
       ),
       body: Center(
-        child: GridView.builder(
-          itemCount: levels.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 0.8,
-          ),
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
-              child: GestureDetector(
-                onTap: () => normalShift(context,
-                    Dashboard(title: levels.keys.toList()[index].toString())),
-                child: Container(
-                  width: (appInfo.screenWidth() - 20) * 0.3,
-                  decoration: BoxDecoration(
-                      color: MAIN_COLOR,
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                      border: Border.all(color: Colors.white, width: 2)),
-                  child: Center(
-                      child: Text(
-                    levels.keys.toList()[index].toString(),
-                    style: TextStyle(
-                        color: Colors.white, fontSize: 20, fontFamily: 'kufam'),
-                  )),
+        child: Directionality(
+          textDirection: TextDirection.rtl,
+          child: GridView.builder(
+            itemCount: levels.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 0.8,
+            ),
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
+                child: GestureDetector(
+                  onTap: () => normalShift(context,
+                      Dashboard(title: levels.keys.toList()[index].toString())),
+                  child: Container(
+                    width: (appInfo.screenWidth() - 20) * 0.3,
+                    decoration: BoxDecoration(
+                        color: MAIN_COLOR,
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        border: Border.all(color: Colors.white, width: 2)),
+                    child: Center(
+                        child: Text(
+                      levels.keys.toList()[index].toString(),
+                      style: TextStyle(
+                          color: Colors.white, fontSize: 20, fontFamily: 'kufam'),
+                    )),
+                  ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );

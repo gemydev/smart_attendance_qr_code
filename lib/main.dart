@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_attendance_qr_code/constants/colors.dart';
+import 'package:smart_attendance_qr_code/screens/welcome.dart';
 import 'screens/home.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Directionality(
           textDirection: TextDirection.rtl,
-          child: HomePage()),
+          child: WelcomeScreen()),
     );
   }
 }
