@@ -8,6 +8,7 @@ import 'package:smart_attendance_qr_code/screens/attendance.dart';
 import 'package:smart_attendance_qr_code/screens/money.dart';
 import 'package:smart_attendance_qr_code/screens/students_info.dart';
 import 'package:smart_attendance_qr_code/widgets/custom_app_bar.dart';
+import 'package:smart_attendance_qr_code/widgets/custom_grid_view.dart';
 
 class Dashboard extends StatefulWidget {
   final String? title;
@@ -27,43 +28,46 @@ class _MyHomePageState extends State<Dashboard> {
     return Scaffold(
       appBar: customAppBar(title: widget.title!),
       body: Directionality(
-        child: Center(
-          child: GridView.builder(
-            itemCount: levels.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 0.8,
-            ),
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
-                child: GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      selectedItem = index;
-                    });
-                    selectedItem == 0
-                        ? normalShift(context, AttendanceScreen())
-                        : selectedItem == 1
-                            ? normalShift(context, MoneyScreen())
-                            : normalShift(context, StudentsInfo());
-                  },
-                  child: Container(
-                    width: (appInfo.screenWidth() - 20) * 0.3,
-                    decoration: BoxDecoration(
-                        color: MAIN_COLOR,
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        border: Border.all(color: Colors.white, width: 2)),
-                    child: Center(
-                        child: Text(
-                      levels[index].toString(),
-                      style: TextStyle(color: Colors.white, fontSize: 18, fontFamily: 'kufam'),
-                    )),
-                  ),
-                ),
-              );
-            },
+        child: GridView.builder(
+          itemCount: levels.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 0.8,
           ),
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedItem = index;
+                  });
+                  selectedItem == 0
+                      ? normalShift(context, AttendanceScreen())
+                      : selectedItem == 1
+                      ? normalShift(context, MoneyScreen())
+                      : normalShift(context, StudentsInfo());
+                },
+                child: Container(
+                  width: (appInfo.screenWidth() - 20) * 0.3,
+                  decoration: BoxDecoration(
+                      color: MAIN_COLOR,
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                      border: Border.all(color: Colors.white, width: 2)),
+                  child: Center(
+                      child: Text(
+                    levels[index].toString(),
+                    softWrap: true,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: appInfo.screenWidth() * 0.05,
+                        fontFamily: 'kufam'),
+                  )),
+                ),
+              ),
+            );
+          },
         ),
         textDirection: TextDirection.rtl,
       ),

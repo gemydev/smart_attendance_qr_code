@@ -17,11 +17,11 @@ class _CustomTableState extends State<CustomTable> {
       itemCount: 20,
       itemBuilder: (context, index){
         return ListTile(
-          title: Text('محمد جمال ',style: TextStyle(
-              fontSize: 18
+          title: Text('محمد جمال',style: TextStyle(
+              fontSize: 16
           )),
           leading: Text(convertToArabicNumber((index+1).toString()),style: TextStyle(
-              fontSize: 18
+              fontSize: 16
           )),
         );
       },

@@ -35,38 +35,43 @@ class _QRViewScreenState extends State<QRViewScreen> {
       body: Container(
         color: MAIN_COLOR,
         child: Column(
-          children: <Widget>[
+            children: <Widget>[
             Expanded(flex: 6, child: _buildQrView(context)),
-            Expanded(
-              flex: 1,
-              child: Container(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    if (result != null)
-                      Text(
-                        'Barcode Type: ${describeEnum(result!.format)}   Data: ${result!.code}',
-                        style: TextStyle(color: Colors.white),
-                      )
-                    else
-                      const Text(
-                        'Scan a code',
-                        style: TextStyle(fontSize: 20, color: Colors.white),
-                      ),
-                  ],
-                ),
-              ),
-            )
-          ],
+        Expanded(
+          flex: 1,
+          child: Container(
+            child: result != null
+                ? Center(
+              child: Text(
+                //  'Barcode Type: ${describeEnum(result!.format)} \nData: ${result!.code}',
+                  '${result!.code}',
+              style: TextStyle(color: Colors.white),
+            ),
+          )
+              : Center(
+        child: const Text(
+        'Scan a code',
+          style: TextStyle(fontSize: 20, color: Colors.white),
         ),
       ),
+    ),
+    )
+    ],
+    ),
+    ),
     );
-  }
+    }
 
   Widget _buildQrView(BuildContext context) {
     // For this example we check how width or tall the device is and change the scanArea and overlay accordingly.
-    var scanArea = (MediaQuery.of(context).size.width < 400 ||
-            MediaQuery.of(context).size.height < 400)
+    var scanArea = (MediaQuery
+        .of(context)
+        .size
+        .width < 400 ||
+        MediaQuery
+            .of(context)
+            .size
+            .height < 400)
         ? 200.0
         : 300.0;
     // To ensure the Scanner view is properly sizes after rotation

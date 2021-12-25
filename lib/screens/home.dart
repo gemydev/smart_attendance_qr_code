@@ -49,7 +49,7 @@ class _MyHomePageState extends State<HomePage> {
                         child: Text(
                       levels.keys.toList()[index].toString(),
                       style: TextStyle(
-                          color: Colors.white, fontSize: 20, fontFamily: 'kufam'),
+                          color: Colors.white, fontSize: 18, fontFamily: 'kufam'),
                     )),
                   ),
                 ),
